@@ -37,10 +37,7 @@ download | 是否支持下载附件 *仅当`displayOnly`为`true`时候生效* |
 ### Methods
 
 - onFileDelete() - 点击删除按钮后的回调 *仅当`displayOnly`为`false`时候生效*
-- onAfterUpload(url: string, name: string) - 文件上传成功的回调 *仅当`displayOnly`为`false`时候生效*
-    - url 文件的绝对路径
-    - name 文件名
-
+- onFileUpload(file: File) - 文件上传的回调 *仅当`displayOnly`为`false`时候生效*
 
 ## Tips
 
