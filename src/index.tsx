@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from "react";
 import { Modal, Toast } from "antd-mobile";
-// import Loading, { LoadingType } from "@components/loading";
-// import { uploadAttachment } from "@api/case";
 import Lightbox from "react-image-lightbox";
 import Compressor from "compressorjs";
 
@@ -11,6 +9,7 @@ import "./index.less";
 const alert = Modal.alert;
 
 type IFileUploadProps = {
+  wrapCls: string; // 外部className
   fileUrl: string; // 文件绝对链接
   fileName: string; // 文件名
   displayOnly: boolean; // 是否为纯展示
@@ -41,6 +40,7 @@ const SuffixForImage = ["jpg", "png", "gif", "jpeg"];
 
 const FileUpload = (props: IFileUploadProps) => {
   const {
+    wrapCls,
     fileUrl,
     fileName,
     displayOnly,
@@ -131,21 +131,6 @@ const FileUpload = (props: IFileUploadProps) => {
   };
   const uploadServer = async (file: File) => {
     onFileUpload && onFileUpload(file);
-    // try {
-    //   // setFetching(true);
-    //   // 文件流上传
-    //   let formData = new FormData();
-    //   formData.append("file", file);
-
-    //   const upload = await uploadAttachment(formData);
-    //   const { url, attachmentName } = upload.data.re;
-    //   onAfterUpload && onAfterUpload(url, attachmentName);
-    // } catch (error) {
-    //   onAfterUpload && onAfterUpload("", "");
-    //   Toast.info(error.msg || "上传失败，请稍后再试！", 2);
-    // } finally {
-    //   // setFetching(false);
-    // }
   };
   // 清除附件
   const clearAttachment = () => {
@@ -170,8 +155,7 @@ const FileUpload = (props: IFileUploadProps) => {
     setViewImage(!!preview);
   };
   return (
-    <div className="file-upload">
-      {/* <Loading type={LoadingType.BG_TYPE} visable={isFetching} fixed /> */}
+    <div className={`file-upload ${wrapCls}`}>
       {viewImage && (
         <Lightbox
           wrapperClassName="light-box"
