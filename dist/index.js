@@ -1,8 +1,6 @@
 import { __awaiter, __generator, __read } from "tslib";
 import React, { useState, useMemo } from "react";
 import { Modal, Toast } from "antd-mobile";
-// import Loading, { LoadingType } from "@components/loading";
-// import { uploadAttachment } from "@api/case";
 import Lightbox from "react-image-lightbox";
 import Compressor from "compressorjs";
 import "react-image-lightbox/style.css";
@@ -26,7 +24,7 @@ var SuffixForAll = [
 ];
 var SuffixForImage = ["jpg", "png", "gif", "jpeg"];
 var FileUpload = function (props) {
-    var fileUrl = props.fileUrl, fileName = props.fileName, displayOnly = props.displayOnly, onFileDelete = props.onFileDelete, onFileUpload = props.onFileUpload, compressImg = props.compressImg, download = props.download, preview = props.preview;
+    var wrapCls = props.wrapCls, fileUrl = props.fileUrl, fileName = props.fileName, displayOnly = props.displayOnly, onFileDelete = props.onFileDelete, onFileUpload = props.onFileUpload, compressImg = props.compressImg, download = props.download, preview = props.preview;
     // const [isFetching, setFetching] = useState(false);
     var _a = __read(useState(false), 2), viewImage = _a[0], setViewImage = _a[1];
     var _b = __read(useState(), 2), refInput = _b[0], setRefInput = _b[1];
@@ -136,7 +134,7 @@ var FileUpload = function (props) {
         // 如果允许预览，则preview为true
         setViewImage(!!preview);
     };
-    return (React.createElement("div", { className: "file-upload" },
+    return (React.createElement("div", { className: "file-upload " + wrapCls },
         viewImage && (React.createElement(Lightbox, { wrapperClassName: "light-box", mainSrc: fileUrl, onCloseRequest: function () {
                 setViewImage(false);
             } })),
