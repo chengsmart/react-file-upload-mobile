@@ -30,8 +30,12 @@ React Mobile File Upload Component
 
     const [image, setImage] = useState();
     const [imageName, setImageName] = useState();
-    const clearAttachment = ()=>{
-
+    const clearAttachment = () => {
+        setImage('');
+        setImageName('');
+    }
+    const onUpload = (file){
+        // upload api
     }
     // 上传模式
     <ReactFileUploadMobile
@@ -41,7 +45,7 @@ React Mobile File Upload Component
         preview={true}
         compressImg={true}
         onFileDelete={clearAttachment}
-        onFileUpload={onImgUpload}
+        onFileUpload={onUpload}
     />
     // 展示模式
     <ReactFileUploadMobile
