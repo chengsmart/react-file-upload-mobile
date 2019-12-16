@@ -1,4 +1,5 @@
 # react-file-upload-mobile
+
 ---
 
 React Mobile File Upload Component
@@ -11,10 +12,12 @@ React Mobile File Upload Component
 [download-image]: https://img.shields.io/npm/dm/react-file-upload-mobile.svg?style=flat-square
 [download-url]: https://www.npmjs.com/package/react-file-upload-mobile
 
+# _当前版本不稳定，bug 修复中_
+
 ## Screenshots
 
 上传模式
-<img src="https://i.bmp.ovh/imgs/2019/11/20ce1d9429a1b5c7.png" width="375"/>  
+<img src="https://i.bmp.ovh/imgs/2019/11/20ce1d9429a1b5c7.png" width="375"/>
 
 展示模式  
 <img src="https://i.bmp.ovh/imgs/2019/11/f61ecc74c0b22cfe.png" width="375" />
@@ -55,23 +58,24 @@ React Mobile File Upload Component
         download={true}
         displayOnly={true}
     />
-```  
+```
 
 ## API
 
-Properties | Descrition | Type | Default
------------|------------|------|--------
-wrapCls | 外部className | string | -
-fileUrl | 文件绝对路径 | string | -
-fileName | 文件名 | string | -
-preview | 点击缩略图查阅大图,使用 [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) 进行大图查看 | boolean | -
-displayOnly | 是否为纯展示的情况 | boolean | -
-compressImg | 是否压缩图片，*仅当`displayOnly`为`false`时候生效*,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用0.8压缩率 | boolean | -
-download | 是否支持下载附件 *仅当`displayOnly`为`true`时候生效* | boolean | -
+| Properties  | Descrition                                                                                                                                         | Type    | Default |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| wrapCls     | 外部 className                                                                                                                                     | string  | -       |
+| fileUrl     | 文件绝对路径                                                                                                                                       | string  | -       |
+| fileName    | 文件名                                                                                                                                             | string  | -       |
+| preview     | 点击缩略图查阅大图,使用 [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) 进行大图查看                           | boolean | -       |
+| displayOnly | 是否为纯展示的情况                                                                                                                                 | boolean | -       |
+| compressImg | 是否压缩图片，_仅当`displayOnly`为`false`时候生效_,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用 0.8 压缩率 | boolean | -       |
+| download    | 是否支持下载附件 _仅当`displayOnly`为`true`时候生效_                                                                                               | boolean | -       |
+
 ### Methods
 
-- onFileDelete() - 点击删除按钮后的回调 *仅当`displayOnly`为`false`时候生效*
-- onFileUpload(file: File) - 文件上传的回调 *仅当`displayOnly`为`false`时候生效*
+- onFileDelete() - 点击删除按钮后的回调 _仅当`displayOnly`为`false`时候生效_
+- onFileUpload(file: File) - 文件上传的回调 _仅当`displayOnly`为`false`时候生效_
 
 ## Tips
 

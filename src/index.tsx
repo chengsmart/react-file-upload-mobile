@@ -3,13 +3,13 @@ import { Modal, Toast } from "antd-mobile";
 import Lightbox from "react-image-lightbox";
 import Compressor from "compressorjs";
 
-import "react-image-lightbox/style.css";
+// import "~/react-image-lightbox/style.css";
 import "./index.less";
 
 const alert = Modal.alert;
 
 type IFileUploadProps = {
-  wrapCls: string; // 外部className
+  wrapCls?: string; // 外部className
   fileUrl: string; // 文件绝对链接
   fileName: string; // 文件名
   displayOnly: boolean; // 是否为纯展示
@@ -156,7 +156,7 @@ const FileUpload = (props: IFileUploadProps) => {
   };
   return (
     <div className={`file-upload ${wrapCls}`}>
-      {viewImage && (
+      {/* {viewImage && (
         <Lightbox
           wrapperClassName="light-box"
           mainSrc={fileUrl}
@@ -164,7 +164,7 @@ const FileUpload = (props: IFileUploadProps) => {
             setViewImage(false);
           }}
         />
-      )}
+      )} */}
       <div className="file-upload-inner">
         {suffix && (
           <div className="img-wrapper">

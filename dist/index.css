@@ -1,0 +1,150 @@
+/**
+   * 图片的垂直居中，注意容器不能设置float，会破坏display的效果，有需要建议在外层增加一层div包裹
+   *
+   * 正常使用，将该方法设置给img的父元素即可:
+   *    div.pic-wrapper
+   *      img
+   * 若元素需要float:
+   *    div.float
+   *      div.pic-wrapper
+   *        img
+   * @param width
+   * @param height
+   */
+/**
+   * 兼容一个参数的写法，长宽相等
+   */
+.file-upload .file-upload-inner {
+  padding: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.file-upload .file-upload-inner .img-wrapper {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.file-upload .file-upload-inner .img-wrapper .icon {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  color: #fff;
+  background-color: #39508d;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+.file-upload .file-upload-inner .img-wrapper .img {
+  display: block;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-size: 28px;
+  color: #fff;
+  background-color: #39508d;
+  line-height: 100px;
+}
+.file-upload .file-upload-inner .img-wrapper .clear {
+  color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+}
+.file-upload .file-upload-inner p {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  word-break: break-all;
+  padding-left: 10px;
+  font-size: 16px;
+}
+.file-upload .file-upload-inner .link {
+  position: relative;
+  color: #39508d;
+  display: inline-block;
+  min-width: 80px;
+  overflow: hidden;
+  text-align: right;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+.file-upload .file-upload-inner .link input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+.file-upload .file-upload-inner .upload {
+  position: relative;
+  color: #39508d;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGtWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxOS0xMS0xOFQxNToyMjo1NyswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTktMTEtMThUMTc6MzI6MDYrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTktMTEtMThUMTc6MzI6MDYrMDg6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTdjOGMzYzktYjMxNi00NjM3LWE5NWQtNjRjZDYzMmZiZDU3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjk2MTk5RTdBMDFGODExRUE4MkU2QTQ1RDcyODY3MkRCIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6OTYxOTlFN0EwMUY4MTFFQTgyRTZBNDVENzI4NjcyREIiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5NjE5OUU3NzAxRjgxMUVBODJFNkE0NUQ3Mjg2NzJEQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5NjE5OUU3ODAxRjgxMUVBODJFNkE0NUQ3Mjg2NzJEQiIvPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo5M2JkNWVmYy0wZjgxLTQzMzItODkwZS0xODliNmIwM2NlYjciIHN0RXZ0OndoZW49IjIwMTktMTEtMThUMTU6MjM6NTgrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MTdjOGMzYzktYjMxNi00NjM3LWE5NWQtNjRjZDYzMmZiZDU3IiBzdEV2dDp3aGVuPSIyMDE5LTExLTE4VDE3OjMyOjA2KzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ZaBOrQAAAadJREFUeJzt3LFtg2AQQOGzRZMi07BBhmEFbxApKzATTOMijRVSGIpUkeWz7un0vgYX1u+zHggJsE/LsmwhjGHfnkqn0GE7V0+gv44jJMZxrJxDEbGua3iEwBgExiAwBoExCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEBiDwBgEZvj/La8xz3Pmcpd9+5W14DRNWUs9pCxIsvfqAbJ0CfJTPUAWzyEwBoExCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQmC6X39v8m1GXIN/VA2SpDHKJ+52+Z28u3SLiY389xPPf6RwR10i8Hfzohwuk8gjJ3ANv+/Yzcc0SXc4hb9UDZOkSpM0feXoOgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxAYg8B0ufzeZsfqEuRaPUCWsiDJvwMveSDhFdoc6l0YBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxAYg8AYBMYgMAaBOR623tZ1LR1Ed78cHRu7SHf82QAAAABJRU5ErkJggg==) no-repeat #fff;
+  background-size: 100% 100%;
+  overflow: hidden;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+.file-upload .file-upload-inner .upload input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+.file-upload .notes {
+  padding: 10px;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+  word-break: break-all;
+}
+.light-box .ril__toolbarRightSide {
+  display: none;
+}
+.light-box .ril__toolbar {
+  background: transparent;
+}
+.light-box .ril__toolbarItemChild {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 22px;
+}
+.light-box .ril__navButtons {
+  width: 0;
+  visibility: hidden;
+}

@@ -1,10 +1,8 @@
-@import "../assets/index.less";
-@fileUploadPrefixClass: file-upload;
-@foreground: #fff;
-@background: #fe9a00;
+@import "style/variables.less";
+@import "style/mixins.less";
 
-.@{fileUploadPrefixClass} {
-  &-inner {
+.file-upload {
+  .file-upload-inner {
     padding: 10px;
     .display(flex);
     .align-content(center);
