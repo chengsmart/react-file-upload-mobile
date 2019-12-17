@@ -14,11 +14,11 @@ React Mobile File Upload Component
 
 ## Screenshots
 
-上传模式
-<img src="https://i.bmp.ovh/imgs/2019/11/20ce1d9429a1b5c7.png" width="375"/>
+- 上传模式  
+  <img src="https://i.bmp.ovh/imgs/2019/11/20ce1d9429a1b5c7.png" width="375"/>
 
-展示模式  
-<img src="https://i.bmp.ovh/imgs/2019/11/f61ecc74c0b22cfe.png" width="375" />
+- 展示模式  
+  <img src="https://i.bmp.ovh/imgs/2019/11/f61ecc74c0b22cfe.png" width="375" />
 
 ## install
 
