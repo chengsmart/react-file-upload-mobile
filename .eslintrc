@@ -1,0 +1,47 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint", //async await eslint 报错问题
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "amd": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "quotes": [2, "single", { "allowTemplateLiterals": true }],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "always",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "yoda": ["error", "always"],
+    "import/extensions": [
+      {
+        "tsx": 2
+      }
+    ],
+    "import/no-unresolved": 0,
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "func-names": 0
+  },
+  "globals": {
+    "$": false
+  }
+}
