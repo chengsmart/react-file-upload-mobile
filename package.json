@@ -1,8 +1,8 @@
 {
   "name": "react-file-upload-mobile",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "file upload ui component for react",
-  "main": "./libs/index.js",
+  "main": "./libs/react-file-upload-mobile/index.js",
   "keywords": [
     "react",
     "react-component",
@@ -104,7 +104,8 @@
   },
   "dependencies": {
     "antd-mobile": "^2.2.8",
-    "compressorjs": "^1.0.6"
+    "compressorjs": "^1.0.6",
+    "core-decorators": "^0.20.0"
   },
   "peerDependencies": {
     "antd-mobile": "^2.2.8",

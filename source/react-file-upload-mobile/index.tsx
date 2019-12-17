@@ -1,42 +1,38 @@
-import React, { useState, useMemo } from 'react';
-import { Modal, Toast } from 'antd-mobile';
-// import Lightbox from "react-image-lightbox";
-import Compressor from 'compressorjs';
+import React, { useState, useMemo } from "react";
+import { Toast } from "antd-mobile";
+import Compressor from "compressorjs";
 
-// import "react-image-lightbox/style.css";
-import './index.less';
-
-const alert = Modal.alert;
+import "./index.less";
 
 type IReactFileUploadMobileProps = {
   wrapCls: string; // 外部className
   fileUrl: string; // 文件绝对链接
   fileName: string; // 文件名
   displayOnly: boolean; // 是否为纯展示
-  preview?: boolean; // 是否支持点击查看大图
-  compressImg?: boolean; // 图片是否需要压缩
+  preview?: () => void; // 点击缩略图回调
+  compressImg?: number; // 图片压缩率，0-1之间的一位小数，0或1为不压缩
   download?: boolean; // 只做展示的情况下，展示是否允许下载
   onFileDelete?: any; // 非展示的情况下，点击按钮删除
   onFileUpload?: (file: File) => void; // 上传
   // onAfterUpload?: (url: string, name: string) => void; // 上传完成后
 };
 const SuffixForAll = [
-  'docx',
-  'doc',
-  'xlsx',
-  'xls',
-  'pptx',
-  'ppt',
-  'jpg',
-  'png',
-  'gif',
-  'jpeg',
-  'mp4',
-  'avi',
-  'zip',
-  'rar',
+  "docx",
+  "doc",
+  "xlsx",
+  "xls",
+  "pptx",
+  "ppt",
+  "jpg",
+  "png",
+  "gif",
+  "jpeg",
+  "mp4",
+  "avi",
+  "zip",
+  "rar"
 ];
-const SuffixForImage = ['jpg', 'png', 'gif', 'jpeg'];
+const SuffixForImage = ["jpg", "png", "gif", "jpeg"];
 
 const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
   const {
@@ -48,15 +44,12 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     onFileUpload,
     compressImg,
     download,
-    preview,
+    preview
   } = props;
-  // const [isFetching, setFetching] = useState(false);
-  const [viewImage, setViewImage] = useState(false);
   const [refInput, setRefInput] = useState();
-  console.log(viewImage);
   const getFileSuffix = (fileFullName: string) => {
-    if (!fileFullName) return '';
-    const arr = fileFullName.split('.');
+    if (!fileFullName) return "";
+    const arr = fileFullName.split(".");
     return arr[arr.length - 1];
   };
   /**
@@ -68,7 +61,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
   const suffix = useMemo(() => {
     if (fileUrl && fileName) {
       const s = getFileSuffix(fileName).toLowerCase(); // 获得当前文件名的后缀
-      return SuffixForImage.indexOf(s) >= 0 ? 'image' : s;
+      return SuffixForImage.indexOf(s) >= 0 ? "image" : s;
     }
     return false;
   }, [fileUrl, fileName]);
@@ -85,7 +78,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
         error(err) {
           console.warn(err);
           reject({ status: -1, data: err });
-        },
+        }
       });
     });
   };
@@ -99,21 +92,21 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     const { size, name } = file;
     const fileSuffix = getFileSuffix(file.name);
     if (-1 === SuffixForAll.indexOf(fileSuffix)) {
-      Toast.info('上传附件格式错误', 2);
+      Toast.info("上传附件格式错误", 2);
       return;
     }
     // 校验文件名长度
     const fileRealName = name.substring(
-      name.lastIndexOf('\\') + 1,
-      name.lastIndexOf('.'),
+      name.lastIndexOf("\\") + 1,
+      name.lastIndexOf(".")
     );
-    if (fileRealName.replace('/[^\x00-\xff]/g', '**').length > 30) {
-      Toast.info('上传文件名过长,请修改后上传', 2);
+    if (fileRealName.replace("/[^\x00-\xff]/g", "**").length > 30) {
+      Toast.info("上传文件名过长,请修改后上传", 2);
       return;
     }
     // 校验大小
     if (size > 50 * 1024 * 1024) {
-      Toast.info('附件过大，压缩到50M以下', 2);
+      Toast.info("附件过大，压缩到50M以下", 2);
       return;
     }
     // 文件为图片，且需要压缩时候，进行压缩上传
@@ -134,16 +127,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
   };
   // 清除附件
   const clearAttachment = () => {
-    alert(<div className='tips-text'>确定删除附件？</div>, '', [
-      { text: '取消', onPress: () => console.log('取消') },
-      {
-        text: '确定',
-        onPress: () => {
-          onFileDelete && onFileDelete();
-          Toast.info('附件删除成功', 2);
-        },
-      },
-    ]);
+    onFileDelete && onFileDelete();
   };
 
   const downloadFile = (url: string) => {
@@ -152,43 +136,34 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
 
   const previewPicture = () => {
     // 如果允许预览，则preview为true
-    setViewImage(!!preview);
+    preview && preview();
   };
   return (
     <div className={`file-upload ${wrapCls}`}>
-      {/* {viewImage && (
-        <Lightbox
-          wrapperClassName="light-box"
-          mainSrc={fileUrl}
-          onCloseRequest={() => {
-            setViewImage(false);
-          }}
-        />
-      )} */}
-      <div className='file-upload-inner'>
+      <div className="file-upload-inner">
         {suffix && (
-          <div className='img-wrapper'>
-            {suffix === 'image' ? (
+          <div className="img-wrapper">
+            {suffix === "image" ? (
               <span
-                className='icon'
+                className="icon"
                 style={{
                   backgroundImage: `url('${fileUrl}')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center center',
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center"
                 }}
                 onClick={previewPicture}
               />
             ) : (
-              <i className='icon'>{suffix}</i>
+              <i className="icon">{suffix}</i>
             )}
           </div>
         )}
-        {suffix && suffix !== 'image' && displayOnly && <p>{fileName}</p>}
+        {suffix && suffix !== "image" && displayOnly && <p>{fileName}</p>}
 
         {/* 展示的情况下,有附件同时支持下载 */}
         {displayOnly && suffix && download && (
           <span
-            className='link'
+            className="link"
             onClick={() => {
               downloadFile(fileUrl);
             }}
@@ -198,13 +173,13 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
         )}
         {!displayOnly && suffix && (
           <div>
-            <span className='link' onClick={clearAttachment}>
+            <span className="link" onClick={clearAttachment}>
               删除
             </span>
-            <span className='link'>
+            <span className="link">
               重新上传
               <input
-                type='file'
+                type="file"
                 ref={i => {
                   setRefInput(i);
                 }}
@@ -215,9 +190,9 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
         )}
         {/* 上传附件，区别于重新上传 */}
         {!displayOnly && !suffix && (
-          <span className='upload'>
+          <span className="upload">
             <input
-              type='file'
+              type="file"
               ref={i => {
                 setRefInput(i);
               }}
@@ -227,7 +202,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
         )}
       </div>
       {!displayOnly && (
-        <div className='notes'>
+        <div className="notes">
           可上传以下格式的附件：.docx，.doc，.xlsx，xls，.pptx，.ppt，.jpg，.png，.gif，.jpeg，.mp4，.avi，.zip，.rar
         </div>
       )}

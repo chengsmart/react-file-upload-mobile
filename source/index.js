@@ -1,4 +1,2 @@
-export {
-  default as ReactFileUploadMobile
-}
-from '../libs/react-file-upload-mobile';
+import ReactFileUploadMobile from "../libs/react-file-upload-mobile";
+export default ReactFileUploadMobile;
