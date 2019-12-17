@@ -1,7 +1,7 @@
 {
-  "name": "tunpm",
+  "name": "example",
   "version": "1.0.0",
-  "description": "test ucar npm",
+  "description": "example",
   "main": "index.js",
   "scripts": {
     "dev": "npm run dll-dev &&  node dev.js",
@@ -19,18 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.10101111.com:ucarfe_lib/ucar_ui.git"
+    "url": "https://github.com/chengsmart/react-file-upload-mobile.git"
   },
-  "keywords": [
-    "ui",
-    "mobile"
-  ],
-  "author": "ying.li14@ucarinc.com",
-  "license": "ISC",
+  "homepage": "https://github.com/chengsmart/react-file-upload-mobile",
   "bugs": {
-    "url": "http://gitlab.10101111.com:8888/ucarfe/ucar_ui/issues"
+    "url": "https://github.com/chengsmart/react-file-upload-mobile/issues"
   },
-  "homepage": "http://gitlab.10101111.com:8888/ucarfe/ucar_ui#README",
+  "author": "chengshuai.tj@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -87,9 +83,6 @@
     "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
-    "@ucarinc/ucar-lib": "0.0.4",
-    "@ucarinc/ucar-lib-env": "^0.0.31",
-    "@ucarinc/ucar-lib-jsbridge": "0.0.32",
     "antd-mobile": "^2.2.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
