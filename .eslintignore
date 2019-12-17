@@ -1,1 +1,14 @@
-src/ListViewDataSource.js
+# common libs
+src/scripts/lib/*
+src/scripts/util/*
+src/dll/*
+node_modules
+
+# other
+*.html
+static/*
+dist/*
+coverage/**
+.nyc_output/*
+es/**
+libs/

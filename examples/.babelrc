@@ -1,0 +1,26 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "add-module-exports",
+    "syntax-dynamic-import",
+    "transform-runtime",
+    "transform-decorators-legacy",
+    [
+      "import",
+      {
+        "style": false,
+        "libraryDirectory": "es", //不加入会出现React.createElement: type is invalid
+        "libraryName": "antd-mobile"
+      }
+    ]
+  ]
+}
