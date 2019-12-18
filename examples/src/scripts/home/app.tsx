@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { hot } from 'react-hot-loader';
-import { AutoTab } from '../../../../libs/index';
+import ReactFileUploadMobile from '../../../../libs/index';
 import './index.less';
-const onChange = (val: any, clear: any) => {
-  console.log(val);
+
+const App = props => {
+  const [image, setImage] = useState('');
+  const [imageName, setImageName] = useState('');
+  const clearAttachment = () => {};
+  const onUpload = file => {
+    // upload api
+    console.log('upload api');
+  };
+  const preview = () => {
+    // preview picture
+    console.log(`preview pic,url = ${image}`);
+  };
+  return (
+    <ReactFileUploadMobile
+      fileUrl={image}
+      fileName={imageName}
+      displayOnly={false}
+      preview={preview}
+      compressImg={0.8}
+      onFileDelete={clearAttachment}
+      onFileUpload={onUpload}
+    />
+  );
 };
-const App = () => <AutoTab onChange={onChange} />;
 
 export default hot(module)(App);

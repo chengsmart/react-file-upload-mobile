@@ -1,9 +1,9 @@
 const ip = require('ip').address();
 // const ip = '127.0.0.1';
-const PORT = 9001;
+const PORT = 9999;
 let cookie;
 const API_DOMAIN = 'http://localhost:8080';
-// const API_DOMAIN = 'http://accounttest.10101111.com';
+
 module.exports = {
   port: PORT,
   hostname: `${ip}:${PORT}/`, // combo 将要替换的域名
@@ -33,12 +33,5 @@ module.exports = {
     },
   },
   isOpenBrowser: true,
-  apiVersion: {
-    zuche: 551,
-    mmc: 300,
-    mmc_wechat: 300,
-    fcar: 100,
-    ucar: 520,
-  },
   needTrack: false,
 };
