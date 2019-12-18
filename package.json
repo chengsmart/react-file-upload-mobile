@@ -1,12 +1,12 @@
 {
   "name": "react-file-upload-mobile",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "file upload ui component for react",
   "main": "./libs/react-file-upload-mobile/index.js",
   "keywords": [
     "react",
     "react-component",
-    "react-file-upload-mobile",
+    "single-file-upload",
     "file-upload"
   ],
   "homepage": "https://github.com/chengsmart/react-file-upload-mobile",

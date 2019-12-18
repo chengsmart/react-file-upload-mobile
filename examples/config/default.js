@@ -9,9 +9,9 @@ module.exports = {
   hostname: `${ip}:${PORT}/`, // combo 将要替换的域名
   domain: `//${ip}:${PORT}/`, // 替换后域名
   apiDomain: `//${ip}:${PORT}/mapi`,
-  configDomain: '//downloadtest.10101111.com/ucarcdnstore/ucar/agreement/', // 协议文件地址
-  cdnDomain: '//downloadtest.10101111.com/ucarcdnstore/', // 协议文件地址
-  configImgDomain: '//img01test.10101111.com/download/ucarcdnstore/ucar/app/', // 图片地址
+  configDomain: '//downloadtest.xxx.com/xxx/xxx/agreement/', // 协议文件地址
+  cdnDomain: '//downloadtest.xxx.com/xxx/', // 协议文件地址
+  configImgDomain: '//img01test.xxx.com/download/xxx/xxx/app/', // 图片地址
   debugUID: '', // 本地调试uid
   proxy: {
     '/mapi/*': {

@@ -1,8 +1,3 @@
-/**
- * Copyright (c) 2017-present y.boy2012@gmail.com Holding Limited
- * @author liying <ly.boy2012@gmail.com>
- */
-
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
