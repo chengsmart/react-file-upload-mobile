@@ -84,6 +84,7 @@
   },
   "dependencies": {
     "antd-mobile": "^2.2.11",
+    "compressorjs": "^1.0.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "zepto": "^1.2.0"

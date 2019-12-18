@@ -35,10 +35,10 @@ React Mobile File Upload Component
         setImage('');
         setImageName('');
     }
-    const onUpload = (file){
+    const onUpload = (file) => {
         // upload api
     }
-    const preview = (){
+    const preview = () => {
         // preview picture
     }
     // 上传模式
