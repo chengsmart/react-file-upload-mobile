@@ -2,7 +2,7 @@
 
 ---
 
-React Mobile File Upload Component
+React Mobile Single File Upload Component
 
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]

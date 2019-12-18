@@ -1,9 +1,9 @@
 module.exports = {
-  hostname: 'accounttest03.10101111.com/static', // 将要替换的域名
-  domain: '//accounttest03.10101111.com/static/', // 替换后域名
-  apiDomain: '//accounttest03.10101111.com/mapi',
-  configDomain: '//downloadtest.10101111.com/ucarcdnstore/ucar/agreement/', // 协议文件地址
-  cdnDomain: '//downloadtest.10101111.com/ucarcdnstore/', // 协议文件地址
-  configImgDomain: '//img01test.10101111.com/download/ucarcdnstore/ucar/app/', // 图片地址
-  needTrack: false,
+  hostname: 'accountpre.xxx.com/static', // 将要替换的域名
+  domain: '//accountpre.xxx.com/static/', // 替换后域名
+  apiDomain: '//accountpre.xxx.com/mapi',
+  configDomain: '//download.xxxcdn.com/xxx/xxx/agreement/', // 协议文件地址
+  cdnDomain: '//download.xxxcdn.com/xxx/', // 前端CDN地址
+  configImgDomain: '//img01.xxx.com/download/xxx/xxx/app/', // 图片地址
+  needTrack: true,
 };
