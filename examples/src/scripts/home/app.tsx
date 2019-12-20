@@ -33,6 +33,23 @@ const App = props => {
       compressImg={0.8}
       onFileDelete={clearAttachment}
       onFileUpload={onUpload}
+      uploadSuffix={[
+        'docx',
+        'doc',
+        'xlsx',
+        'xls',
+        'pptx',
+        'ppt',
+        'jpg',
+        'png',
+        'gif',
+        'jpeg',
+        'mp4',
+        'avi',
+        'zip',
+        'rar',
+      ]}
+      uploadImgSuffix={['jpg', 'png', 'gif', 'jpeg']}
     />
   );
 };

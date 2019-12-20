@@ -1,0 +1,30 @@
+{
+  "id": "1574349",
+  "name": "react-file-upload-mobile",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4948994",
+      "name": "重新上传",
+      "font_class": "zhongxinshangchuan",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "11372693",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e8b6",
+      "unicode_decimal": 59574
+    },
+    {
+      "icon_id": "11372695",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e8b7",
+      "unicode_decimal": 59575
+    }
+  ]
+}

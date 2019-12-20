@@ -14,11 +14,14 @@ React Mobile Single File Upload Component
 
 ## Screenshots
 
-- 上传模式  
-  <img src="https://i.bmp.ovh/imgs/2019/11/20ce1d9429a1b5c7.png" width="375"/>
+- 上传模式-待上传  
+  <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37iqxscoj30ae05bdfv.jpg" width="375"/>
+
+- 上传模式-已上传  
+   <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37jly75yj30ad04zgmb.jpg" width="375"/>
 
 - 展示模式  
-  <img src="https://i.bmp.ovh/imgs/2019/11/f61ecc74c0b22cfe.png" width="375" />
+  <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37lpz0r8j30ae03t0sp.jpg" width="375" />
 
 ## install
 
@@ -50,6 +53,8 @@ React Mobile Single File Upload Component
         compressImg={0.8}
         onFileDelete={clearAttachment}
         onFileUpload={onUpload}
+        uploadSuffix={['docx', 'doc', 'jpg', 'png', 'jpeg', 'zip']}
+        uploadImgSuffix={['jpg', 'png', 'jpeg']}
     />
     // 展示模式
     <ReactFileUploadMobile
@@ -63,14 +68,16 @@ React Mobile Single File Upload Component
 
 ## API
 
-| Properties  | Descrition                                                                                                                                                                            | Type    | Default |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| wrapCls     | 外部 className                                                                                                                                                                        | string  | -       |
-| fileUrl     | 文件绝对路径                                                                                                                                                                          | string  | -       |
-| fileName    | 文件名                                                                                                                                                                                | string  | -       |
-| displayOnly | 是否为纯展示的情况                                                                                                                                                                    | boolean | false   |
-| compressImg | 图片压缩率，_仅当`displayOnly`为`false`时候生效_,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用 0.8 压缩率，0-1 之间的一位小数，0 或 1 为不压缩 | number  | 0.8     |
-| download    | 是否支持下载附件 _仅当`displayOnly`为`true`时候生效_                                                                                                                                  | boolean | false   |
+| Properties      | Descrition                                                                                                                                                                            | Type    | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| wrapCls         | 外部 className                                                                                                                                                                        | string  | -       |
+| fileUrl         | 文件绝对路径                                                                                                                                                                          | string  | -       |
+| fileName        | 文件名                                                                                                                                                                                | string  | -       |
+| displayOnly     | 是否为纯展示的情况                                                                                                                                                                    | boolean | false   |
+| compressImg     | 图片压缩率，_仅当`displayOnly`为`false`时候生效_,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用 0.8 压缩率，0-1 之间的一位小数，0 或 1 为不压缩 | number  | 0.8     |
+| download        | 是否支持下载附件 _仅当`displayOnly`为`true`时候生效_                                                                                                                                  | boolean | false   |
+| uploadSuffix    | 上传文件的后缀限制，_仅当`displayOnly`为`false`时候生效_                                                                                                                              | Array   | []      |
+| uploadImgSuffix | 图片文件的后缀，uploadSuffix 的子集，_仅当`displayOnly`为`false`时候生效_                                                                                                             | Array   | []      |
 
 ### Methods
 
@@ -84,11 +91,11 @@ React Mobile Single File Upload Component
 
 ## TODOs
 
+- 添加参数：文件后缀限制(Done)
+- 添加参数：压缩比例(Done)
+- 完善文档：默认参数(Done)
 - 添加参数：文件名长度限制
 - 添加参数：文件大小限制
-- 添加参数：文件后缀限制
-- 添加参数：压缩比例
-- 完善文档：默认参数
 
 ## Example
 

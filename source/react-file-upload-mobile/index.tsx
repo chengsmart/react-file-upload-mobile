@@ -14,24 +14,9 @@ type IReactFileUploadMobileProps = {
   download?: boolean; // 只做展示的情况下，展示是否允许下载
   onFileDelete?: any; // 非展示的情况下，点击按钮删除
   onFileUpload?: (file: File) => void; // 上传
+  uploadSuffix?: any; // 上传文件的后缀限制
+  uploadImgSuffix?: any; // 图片文件的后缀，uploadSuffix的子集
 };
-const SuffixForAll = [
-  'docx',
-  'doc',
-  'xlsx',
-  'xls',
-  'pptx',
-  'ppt',
-  'jpg',
-  'png',
-  'gif',
-  'jpeg',
-  'mp4',
-  'avi',
-  'zip',
-  'rar',
-];
-const SuffixForImage = ['jpg', 'png', 'gif', 'jpeg'];
 
 const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
   const {
@@ -44,6 +29,8 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     compressImg = 0.8,
     download,
     preview,
+    uploadSuffix = [],
+    uploadImgSuffix = [],
   } = props;
   const [refInput, setRefInput] = useState();
   const getFileSuffix = (fileFullName: string) => {
@@ -60,7 +47,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
   const suffix = useMemo(() => {
     if (fileUrl && fileName) {
       const s = getFileSuffix(fileName).toLowerCase(); // 获得当前文件名的后缀
-      return SuffixForImage.indexOf(s) >= 0 ? 'image' : s;
+      return uploadImgSuffix.indexOf(s) >= 0 ? 'image' : s;
     }
     return false;
   }, [fileUrl, fileName]);
@@ -91,29 +78,29 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     }
     const { size, name } = file;
     const fileSuffix = getFileSuffix(file.name);
-    if (-1 === SuffixForAll.indexOf(fileSuffix)) {
+    if (uploadSuffix.length > 0 && -1 === uploadSuffix.indexOf(fileSuffix)) {
       Toast.info('上传附件格式错误', 2);
       return;
     }
-    // 校验文件名长度
+    // // 校验文件名长度
     const fileRealName = name.substring(
       name.lastIndexOf('\\') + 1,
       name.lastIndexOf('.'),
     );
     if (fileRealName.replace('/[^\x00-\xff]/g', '**').length > 30) {
-      Toast.info('上传文件名过长,请修改后上传', 2);
-      return;
+      // Toast.info('上传文件名过长,请修改后上传', 2);
+      // return;
     }
     // 校验大小
     if (size > 50 * 1024 * 1024) {
-      Toast.info('附件过大，压缩到50M以下', 2);
-      return;
+      // Toast.info('附件过大，压缩到50M以下', 2);
+      // return;
     }
     // 文件为图片，且需要压缩时候，进行压缩上传
     if (
       0 < compressImg &&
       compressImg < 1 &&
-      SuffixForImage.indexOf(fileSuffix) >= 0
+      uploadImgSuffix.indexOf(fileSuffix) >= 0
     ) {
       const res: any = await imageCompressor(file);
       if (res.status >= 0) {
@@ -172,16 +159,19 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
               downloadFile(fileUrl);
             }}
           >
-            下载附件
+            {/* 下载附件 */}
+            <i className='iconfont icon-download'>&#xe8b7;</i>
           </span>
         )}
         {!displayOnly && suffix && (
           <div>
             <span className='link' onClick={clearAttachment}>
-              删除
+              {/* 删除 */}
+              <i className='iconfont icon-delete'>&#xe8b6;</i>
             </span>
             <span className='link'>
-              重新上传
+              {/* 重新上传 */}
+              <i className='iconfont icon-re-upload'>&#xe620;</i>
               <input
                 type='file'
                 ref={i => {
@@ -205,9 +195,10 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
           </span>
         )}
       </div>
-      {!displayOnly && (
+      {!displayOnly && uploadSuffix.length > 0 && (
         <div className='notes'>
-          可上传以下格式的附件：.docx，.doc，.xlsx，xls，.pptx，.ppt，.jpg，.png，.gif，.jpeg，.mp4，.avi，.zip，.rar
+          可上传以下格式的附件：
+          {uploadSuffix.join('、')}
         </div>
       )}
     </div>
