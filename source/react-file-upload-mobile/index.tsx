@@ -93,8 +93,8 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     }
     // 校验大小
     if (size > 50 * 1024 * 1024) {
-      Toast.info('附件过大，压缩到50M以下', 2);
-      return;
+      // Toast.info('附件过大，压缩到50M以下', 2);
+      // return;
     }
     // 文件为图片，且需要压缩时候，进行压缩上传
     if (
