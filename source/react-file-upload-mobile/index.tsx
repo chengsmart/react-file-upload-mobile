@@ -172,16 +172,19 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
               downloadFile(fileUrl);
             }}
           >
-            下载附件
+            {/* 下载附件 */}
+            <i className='iconfont icon-download'>&#xe8b7;</i>
           </span>
         )}
         {!displayOnly && suffix && (
           <div>
             <span className='link' onClick={clearAttachment}>
-              删除
+              {/* 删除 */}
+              <i className='iconfont icon-delete'>&#xe8b6;</i>
             </span>
             <span className='link'>
-              重新上传
+              {/* 重新上传 */}
+              <i className='iconfont icon-re-upload'>&#xe620;</i>
               <input
                 type='file'
                 ref={i => {
