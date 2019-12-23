@@ -33,6 +33,7 @@ const App = props => {
       compressImg={0.8}
       onFileDelete={clearAttachment}
       onFileUpload={onUpload}
+      showNote
       uploadSuffix={[
         'docx',
         'doc',

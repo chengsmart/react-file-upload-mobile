@@ -14,6 +14,7 @@ type IReactFileUploadMobileProps = {
   download?: boolean; // 只做展示的情况下，展示是否允许下载
   onFileDelete?: any; // 非展示的情况下，点击按钮删除
   onFileUpload?: (file: File) => void; // 上传
+  showNote?: boolean; // 是否展示底部文字
   uploadSuffix?: any; // 上传文件的后缀限制
   uploadImgSuffix?: any; // 图片文件的后缀，uploadSuffix的子集
 };
@@ -29,6 +30,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
     compressImg = 0.8,
     download,
     preview,
+    showNote = false,
     uploadSuffix = [],
     uploadImgSuffix = [],
   } = props;
@@ -195,7 +197,7 @@ const ReactFileUploadMobile = (props: IReactFileUploadMobileProps) => {
           </span>
         )}
       </div>
-      {!displayOnly && uploadSuffix.length > 0 && (
+      {!displayOnly && showNote && uploadSuffix.length > 0 && (
         <div className='notes'>
           可上传以下格式的附件：
           {uploadSuffix.join('、')}
