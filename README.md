@@ -53,6 +53,7 @@ React Mobile Single File Upload Component
         compressImg={0.8}
         onFileDelete={clearAttachment}
         onFileUpload={onUpload}
+        showNote={true}
         uploadSuffix={['docx', 'doc', 'jpg', 'png', 'jpeg', 'zip']}
         uploadImgSuffix={['jpg', 'png', 'jpeg']}
     />
@@ -76,12 +77,13 @@ React Mobile Single File Upload Component
 | displayOnly     | 是否为纯展示的情况                                                                                                                                                                    | boolean | false   |
 | compressImg     | 图片压缩率，_仅当`displayOnly`为`false`时候生效_,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用 0.8 压缩率，0-1 之间的一位小数，0 或 1 为不压缩 | number  | 0.8     |
 | download        | 是否支持下载附件 _仅当`displayOnly`为`true`时候生效_                                                                                                                                  | boolean | false   |
+| showNote        | 是否展示底部文字，_仅当`displayOnly`为`false`时候生效_                                                                                                                                | boolean | false   |
 | uploadSuffix    | 上传文件的后缀限制，_仅当`displayOnly`为`false`时候生效_                                                                                                                              | Array   | []      |
 | uploadImgSuffix | 图片文件的后缀，uploadSuffix 的子集，_仅当`displayOnly`为`false`时候生效_                                                                                                             | Array   | []      |
 
 ### Methods
 
-- preview() - 点击缩略图回调,用于查阅大图等功能,可回调掉中使用 [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) 进行大图查看
+- preview() - 点击缩略图回调,用于查阅大图等功能,可在回调中使用 [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) 进行大图查看
 - onFileDelete() - 点击删除按钮后的回调 _仅当`displayOnly`为`false`时候生效_
 - onFileUpload(file: File) - 文件上传的回调 _仅当`displayOnly`为`false`时候生效_
 
