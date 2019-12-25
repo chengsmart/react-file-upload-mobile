@@ -4,6 +4,8 @@
 
 React Mobile Single File Upload Component
 
+- [中文版](./README_zh.md)
+
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]
 
@@ -14,13 +16,13 @@ React Mobile Single File Upload Component
 
 ## Screenshots
 
-- 上传模式-待上传  
+- Upload mode - To be uploaded  
   <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37iqxscoj30ae05bdfv.jpg" width="375"/>
 
-- 上传模式-已上传  
-   <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37jly75yj30ad04zgmb.jpg" width="375"/>
+- Upload mode - Uploaded  
+  <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37jly75yj30ad04zgmb.jpg" width="375"/>
 
-- 展示模式  
+- Display mode  
   <img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga37lpz0r8j30ae03t0sp.jpg" width="375" />
 
 ## install
@@ -44,7 +46,7 @@ React Mobile Single File Upload Component
     const preview = () => {
         // preview picture
     }
-    // 上传模式
+    // Upload mode
     <ReactFileUploadMobile
         fileUrl={image}
         fileName={imageName}
@@ -57,7 +59,7 @@ React Mobile Single File Upload Component
         uploadSuffix={['docx', 'doc', 'jpg', 'png', 'jpeg', 'zip']}
         uploadImgSuffix={['jpg', 'png', 'jpeg']}
     />
-    // 展示模式
+    // Display mode
     <ReactFileUploadMobile
         fileUrl={'//xxx.com/xxx.jpg'}
         fileName={'xxx.jpg'}
@@ -69,35 +71,33 @@ React Mobile Single File Upload Component
 
 ## API
 
-| Properties      | Descrition                                                                                                                                                                            | Type    | Default |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| wrapCls         | 外部 className                                                                                                                                                                        | string  | -       |
-| fileUrl         | 文件绝对路径                                                                                                                                                                          | string  | -       |
-| fileName        | 文件名                                                                                                                                                                                | string  | -       |
-| displayOnly     | 是否为纯展示的情况                                                                                                                                                                    | boolean | false   |
-| compressImg     | 图片压缩率，_仅当`displayOnly`为`false`时候生效_,使用 [compressorjs](https://github.com/fengyuanchen/compressorjs) 进行压缩，默认使用 0.8 压缩率，0-1 之间的一位小数，0 或 1 为不压缩 | number  | 0.8     |
-| download        | 是否支持下载附件 _仅当`displayOnly`为`true`时候生效_                                                                                                                                  | boolean | false   |
-| showNote        | 是否展示底部文字，_仅当`displayOnly`为`false`时候生效_                                                                                                                                | boolean | false   |
-| uploadSuffix    | 上传文件的后缀限制，_仅当`displayOnly`为`false`时候生效_                                                                                                                              | Array   | []      |
-| uploadImgSuffix | 图片文件的后缀，uploadSuffix 的子集，_仅当`displayOnly`为`false`时候生效_                                                                                                             | Array   | []      |
+| Properties      | Descrition                                                                                           | Type    | Default |
+| --------------- | ---------------------------------------------------------------------------------------------------- | ------- | ------- |
+| wrapCls         | Wrap className                                                                                       | string  | -       |
+| fileUrl         | File url                                                                                             | string  | -       |
+| fileName        | File name                                                                                            | string  | -       |
+| displayOnly     | Display mode or upload mode                                                                          | boolean | false   |
+| download        | Downloading file _Display mode only_                                                                 | boolean | false   |
+| compressImg     | Picture compression ratio, _Upload mode only_, One decimal place between 0-1, 0 or 1 is uncompressed | number  | 0.8     |
+| showNote        | Show bottom text, _Upload mode only_                                                                 | boolean | false   |
+| uploadSuffix    | Suffix restrictions on uploaded files, _Upload mode only_                                            | Array   | []      |
+| uploadImgSuffix | Picture file suffix,Subset of uploadSuffix, _Upload mode only_                                       | Array   | []      |
 
 ### Methods
 
-- preview() - 点击缩略图回调,用于查阅大图等功能,可在回调中使用 [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) 进行大图查看
-- onFileDelete() - 点击删除按钮后的回调 _仅当`displayOnly`为`false`时候生效_
-- onFileUpload(file: File) - 文件上传的回调 _仅当`displayOnly`为`false`时候生效_
+- preview() - Click thumbnail callback
+- onFileDelete() - Clicking delete button callback, _Upload mode only_
+- onFileUpload(file: File) - File upload callback, _Upload mode only_
 
 ## Development
 
-修改`source`下的文件，`npm run build`即可编译，其他功能尚未实现
+Modify the file under `source`,`npm run build` will compile, other functions have not been implemented yet
 
 ## TODOs
 
-- 添加参数：文件后缀限制(Done)
-- 添加参数：压缩比例(Done)
-- 完善文档：默认参数(Done)
-- 添加参数：文件名长度限制
-- 添加参数：文件大小限制
+- Globalization
+- Add parameter: file name length limit
+- Add parameter: file size limit
 
 ## Example
 
